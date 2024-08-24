@@ -1,0 +1,54 @@
+# Build directories
+/build/
+/bin/
+/obj/
+/src/*.o
+
+# Executables
+/connect4
+/test_executable
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+*.swn
+*.log
+
+# Dependency directories
+/extern/
+lib/
+
+# IDE/editor specific files
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Compiled source
+*.com
+*.class
+*.dll
+*.exe
+*.out
+*.pdb
+*.pyc
+*.so
+*.dylib
+*.a
+*.lib
+*.la
+*.lo
+*.slo
+
+# Raylib and Unity specific build files
+*.dSYM/
+*.o
+*.a
+*.so
+*.d
+*.deps

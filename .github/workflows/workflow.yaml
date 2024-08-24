@@ -1,0 +1,15 @@
+name: C/C++ CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install dependencies
+      run: sudo apt-get install build-essential
+    - name: Build
+      run: make
+    - name: Run Tests
+      run: ./test_executable
