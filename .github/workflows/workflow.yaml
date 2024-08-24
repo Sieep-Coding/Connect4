@@ -1,19 +1,17 @@
-# Define paths
-INCLUDE_PATH = /usr/local/include
-LIB_PATH = /usr/local/lib
+name: Build and Test
 
-# Compiler and linker flags
-CFLAGS = -Wall -Wextra -std=c11 -I$(INCLUDE_PATH)
-LDFLAGS = -L$(LIB_PATH) -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
+on: [push, pull_request]
 
-# Targets and rules
-all: connect4
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
-connect4: src/main.o
-    gcc $(CFLAGS) -o connect4 src/main.o $(LDFLAGS)
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-src/main.o: src/main.c
-    gcc $(CFLAGS) -c src/main.c -o src/main.o
+    - name: Run build script
+      run: ./build.sh
 
-clean:
-    rm -f src/*.o connect4
+    - name: Run tests
+      run: make test
