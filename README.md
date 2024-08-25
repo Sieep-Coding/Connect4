@@ -16,5 +16,6 @@ The `include/` folder shows the dependencies I plan on using.
  * [ ] Finish game
  * [ ] Add effects, unique game elements
  * [ ] Add Multiplayer via nbnet
+ * [ ] Web version
 
 
