@@ -10,4 +10,11 @@ I'll update this as time goes on.
 
 The `include/` folder shows the dependencies I plan on using.
 
+## Roadmap
+
+ * [ ] Add support for tests
+ * [ ] Finish game
+ * [ ] Add effects, unique game elements
+ * [ ] Add Multiplayer via nbnet
+
 
