@@ -1,21 +1,24 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -std=c11 -Iinclude
 LDFLAGS = -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
-SRCS = src/main.c
-OBJS = $(SRCS:.c=.o)
-TARGET = connect4
 
-all: $(TARGET)
+# Targets
+all: connect4
 
-$(TARGET): $(OBJS)
-	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS) $(LDFLAGS)
+connect4: src/main.o
+	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
 
-src/%.o: src/%.c
-	$(CC) $(CFLAGS) -Iinclude -c $< -o $@
+test: src/test.o include/unity.o
+	$(CC) $(CFLAGS) -o test $^ $(LDFLAGS)
 
-test: $(OBJS)
-	$(CC) $(CFLAGS) -o test_executable src/unity.c $(OBJS) $(LDFLAGS)
-	./test_executable
+src/main.o: src/main.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+include/unity.o: include/unity.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+src/test.o: src/test.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS) $(TARGET) test_executable
+	rm -f src/*.o include/*.o connect4 test
