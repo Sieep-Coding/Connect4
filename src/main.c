@@ -19,7 +19,7 @@ typedef struct {
 void DrawBoard(GameState *game) {
     for (int x = 0; x < BOARD_WIDTH; x++) {
         for (int y = 0; y < BOARD_HEIGHT; y++) {
-            DrawRectangle(x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE, CELL_SIZE, RAYWHITE);
+            DrawRectangle(x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE, CELL_SIZE, GRAY);
             if (game->board[x][y] != 0) {
                 DrawCircle(x * CELL_SIZE + CELL_SIZE / 2, y * CELL_SIZE + CELL_SIZE / 2, CELL_SIZE / 2 - 5, game->board[x][y] == 1 ? RED : BLUE);
             }
@@ -57,8 +57,8 @@ void UpdateGame(GameState *game, float deltaTime) {
 }
 
 void DrawGUI(GameState *game) {
-    DrawText(TextFormat("Player %d's Turn", game->currentPlayer), 10, 10, 20, WHITE);
-    DrawText(TextFormat("Time Left: %.1f", game->timer), 10, 40, 20, WHITE);
+    DrawText(TextFormat("Player %d's Turn", game->currentPlayer), 10, 10, 20, BLACK);
+    DrawText(TextFormat("Time Left: %.1f", game->timer), 10, 40, 20, BLACK);
     
     if (GuiButton((Rectangle){ 10, 70, 150, 30 }, "Restart Game")) {
         memset(game->board, 0, sizeof(game->board));
