@@ -17,11 +17,18 @@ typedef struct {
 } GameState;
 
 void DrawBoard(GameState *game) {
-    for (int x = 0; x < BOARD_WIDTH; x++) {
+    for (int x = 0; x < BOARD_WIDTH; x++) {  
         for (int y = 0; y < BOARD_HEIGHT; y++) {
-            DrawRectangle(x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE, CELL_SIZE, GRAY);
+            DrawRectangle(x * CELL_SIZE, 
+			  y * CELL_SIZE, 
+			  CELL_SIZE, 
+			  CELL_SIZE, 
+			  GRAY);
             if (game->board[x][y] != 0) {
-                DrawCircle(x * CELL_SIZE + CELL_SIZE / 2, y * CELL_SIZE + CELL_SIZE / 2, CELL_SIZE / 2 - 5, game->board[x][y] == 1 ? RED : BLUE);
+                DrawCircle(x * CELL_SIZE + CELL_SIZE / 2, 
+			   y * CELL_SIZE + CELL_SIZE / 2, 
+			   CELL_SIZE / 2 - 5, 
+			   game->board[x][y] == 1 ? RED : BLUE);
             }
         }
     }
