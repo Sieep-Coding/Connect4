@@ -1,4 +1,5 @@
 #include "raylib.h"
+#include "../include/logic.h"
 
 #define RAYGUI_IMPLEMENTATION
 #include "raygui.h"
@@ -23,10 +24,8 @@ int main()
             {
                 int result = GuiMessageBox((Rectangle){ 85, 70, 250, 100 },
                     "#191#Message Box", "Hi! This is a message!", "Nice;Cool");
-
                 if (result >= 0) showMessageBox = false;
             }
-
         EndDrawing();
     }
 
